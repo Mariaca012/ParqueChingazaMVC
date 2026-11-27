@@ -1,0 +1,153 @@
+﻿
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="carousel slide">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+
+            <img src="@Url.Content("~/imagenes/naturaleza.svg")"
+                 class="d-block w-100 mi-banner"
+                 alt="Parque Chingaza" />
+
+        </div>
+    </div>
+</div>
+
+<div class="container my-4">
+
+    <h2 class="text-success text-center">
+        Información del Parque
+    </h2>
+
+    <p class="text-center">
+        El Parque Chingaza es un espacio natural para
+        conocer la biodiversidad y disfrutar de
+        actividades ambientales.
+    </p>
+
+    <div class="row my-4">
+
+        <div class="col-md-6 mb-3">
+
+            <h4>Actividades</h4>
+
+            <ul id="lista-actividades"
+                class="list-group mb-3">
+
+                <li class="list-group-item">Senderismo</li>
+                <li class="list-group-item">Ciclismo</li>
+                <li class="list-group-item">Observación de aves</li>
+                <li class="list-group-item">Educación ambiental</li>
+
+            </ul>
+
+            <div class="input-group">
+
+                <input id="nueva-actividad"
+                       class="form-control"
+                       placeholder="Nueva actividad" />
+
+                <button id="btn-agregar"
+                        type="button"
+                        class="btn btn-success">
+                    Agregar
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-6 mb-3">
+
+            <div class="ratio ratio-16x9">
+
+                <iframe
+                    src="https://www.youtube.com/embed/iN9kN2cK-BA"
+                    title="Parque Chingaza"
+                    allowfullscreen>
+                </iframe>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <h4>Horarios de Atención</h4>
+
+    <table class="table table-bordered text-center">
+
+        <thead class="table-success">
+            <tr>
+                <th>Días</th>
+                <th>Horarios</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>Lunes a Viernes</td>
+                <td>7:00 a.m. - 4:00 p.m.</td>
+            </tr>
+
+            <tr>
+                <td>Sábados, Domingos y Festivos</td>
+                <td>8:00 a.m. - 2:00 p.m.</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <section class="card p-4 my-4 text-center">
+
+        <h2 class="text-success">
+            Reserva tu visita
+        </h2>
+
+        <p>Valor por persona: $15.000 COP</p>
+
+        <a asp-controller="Reservas"
+           asp-action="Create"
+           class="btn btn-success">
+            Realizar Reserva
+        </a>
+
+    </section>
+
+    <section class="my-4">
+
+        <h2 class="text-success text-center">
+            Contacto
+        </h2>
+
+        <form action="mailto:tu-correo@gmail.com"
+              method="post"
+              enctype="text/plain"
+              class="card p-3">
+
+            <label>Nombre:</label>
+
+            <input name="Nombre"
+                   class="form-control mb-3"
+                   required />
+
+            <label>Correo:</label>
+
+            <input name="Correo"
+                   type="email"
+                   class="form-control mb-3"
+                   required />
+
+            <button class="btn btn-success">
+                Enviar mensaje
+            </button>
+
+        </form>
+
+    </section>
+
+</div>

@@ -1,0 +1,106 @@
+
+@model ParqueChingazaMVC.Models.Reserva
+
+@{
+    ViewData["Title"] = "Nueva Reserva";
+}
+
+<div class="container my-4">
+
+    <h2 class="text-success text-center mb-4">
+        Registrar Reserva
+    </h2>
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <form asp-action="Create"
+                  method="post"
+                  class="card p-4">
+
+                <div asp-validation-summary="ModelOnly"
+                     class="text-danger"></div>
+
+                <label asp-for="NombreVisitante">
+                    Nombre del visitante
+                </label>
+
+                <input asp-for="NombreVisitante"
+                       class="form-control mb-2"
+                       required />
+
+                <span asp-validation-for="NombreVisitante"
+                      class="text-danger"></span>
+
+                <label asp-for="Actividad">
+                    Actividad
+                </label>
+
+                <select asp-for="Actividad"
+                        class="form-select mb-2"
+                        required>
+
+                    <option value="">Seleccione</option>
+                    <option value="Senderismo">Senderismo</option>
+                    <option value="Ciclismo">Ciclismo</option>
+
+                    <option value="Observacion de aves">
+                        Observación de aves
+                    </option>
+
+                    <option value="Educacion ambiental">
+                        Educación ambiental
+                    </option>
+
+                </select>
+
+                <span asp-validation-for="Actividad"
+                      class="text-danger"></span>
+
+                <label for="cantidadPersonas">
+                    Cantidad de personas
+                </label>
+
+                <input asp-for="CantidadPersonas"
+                       id="cantidadPersonas"
+                       type="number"
+                       min="1"
+                       max="100"
+                       class="form-control mb-3"
+                       required />
+
+                <span asp-validation-for="CantidadPersonas"
+                      class="text-danger"></span>
+
+                <div class="alert alert-success">
+
+                    Total a pagar:
+
+                    <strong id="totalReserva">
+                        $15.000 COP
+                    </strong>
+
+                </div>
+
+                <button type="submit"
+                        class="btn btn-success">
+                    Guardar Reserva
+                </button>
+
+                <a asp-action="Index"
+                   class="btn btn-secondary mt-2">
+                    Cancelar
+                </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

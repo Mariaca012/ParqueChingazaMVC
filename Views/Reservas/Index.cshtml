@@ -1,0 +1,61 @@
+
+@model IEnumerable<ParqueChingazaMVC.Models.Reserva>
+
+@{
+    ViewData["Title"] = "Reservas";
+}
+
+<div class="container my-4">
+
+    <h2 class="text-success text-center mb-4">
+        Reservas del Parque Chingaza
+    </h2>
+
+    <a asp-action="Create"
+       class="btn btn-success mb-3">
+        Nueva Reserva
+    </a>
+
+    <div class="table-responsive">
+
+        <table class="table table-bordered table-striped">
+
+            <thead class="table-success">
+
+                <tr>
+                    <th>ID</th>
+                    <th>Visitante</th>
+                    <th>Actividad</th>
+                    <th>Personas</th>
+                    <th>Total</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @foreach (var reserva in Model)
+                {
+                    <tr>
+                        <td>@reserva.Id</td>
+                        <td>@reserva.NombreVisitante</td>
+                        <td>@reserva.Actividad</td>
+                        <td>@reserva.CantidadPersonas</td>
+                        <td>$@reserva.Total.ToString("N0")</td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            No hay reservas registradas.
+        </div>
+    }
+
+</div>

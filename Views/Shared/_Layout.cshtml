@@ -1,0 +1,63 @@
+﻿
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - Parque Chingaza</title>
+
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark bg-success">
+        <div class="container">
+
+            <a class="navbar-brand fw-bold"
+               asp-controller="Home"
+               asp-action="Index">
+                Parque Chingaza
+            </a>
+
+            <div class="d-flex gap-3">
+
+                <a class="text-white text-decoration-none"
+                   asp-controller="Home"
+                   asp-action="Index">
+                    Inicio
+                </a>
+
+                <a class="text-white text-decoration-none"
+                   asp-controller="Reservas"
+                   asp-action="Index">
+                    Reservas
+                </a>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer class="bg-dark text-white text-center p-3 mt-4">
+        Parque Chingaza - Programación Web
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>
